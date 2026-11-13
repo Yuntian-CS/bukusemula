@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-huwoc*1_*a%tz#qlel8$ur=mv(vq=*r2!dj*e!r7725fnq11om
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1"]
+ALLOWED_HOSTS = ["127.0.0.1", "www.bukusemula.shop"]
 
 
 # Application definition
