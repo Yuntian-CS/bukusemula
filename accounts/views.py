@@ -392,6 +392,3 @@ class LogOutConfirmView(LoginRequiredMixin, TemplateView):
 
 class LogOutView(BaseLogoutView):
     template_name = "accounts/log_out.html"
-
-def test_firebase(request):
-    return render(request, 'test-firebase.html')

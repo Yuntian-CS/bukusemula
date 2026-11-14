@@ -20,7 +20,6 @@ from .views import (
 app_name = "accounts"
 
 urlpatterns = [
-        path('test-firebase/', views.test_firebase, name='test_firebase'),
         path("log-in/", LogInView.as_view(), name="log_in"),
         path("log-out/confirm/", LogOutConfirmView.as_view(), name="log_out_confirm"),
         path("log-out/", LogOutView.as_view(), name="log_out"),

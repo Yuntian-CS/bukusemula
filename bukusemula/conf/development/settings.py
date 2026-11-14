@@ -83,27 +83,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'bukusemula.wsgi.application'
 
-#firebase settings
-FIREBASE_SERVICE_ACCOUNT_FILE = (
-    BASE_DIR / "secrets/bukusemula-firebase-adminsdk-fbsvc-d33b3940a1.json"
-)
-
-FIREBASE_DATABASE_URL = os.environ["FIREBASE_DATABASE_URL"]
-
-FIREBASE_BOOTSTRAP_ADMIN_UID = os.environ.get(
-    "FIREBASE_BOOTSTRAP_ADMIN_UID", ""
-)
-
-FIREBASE_WEB_CONFIG = {
-    "apiKey": os.environ["FIREBASE_API_KEY"],
-    "authDomain": os.environ["FIREBASE_AUTH_DOMAIN"],
-    "databaseURL": FIREBASE_DATABASE_URL,
-    "projectId": os.environ["FIREBASE_PROJECT_ID"],
-    "storageBucket": os.environ["FIREBASE_STORAGE_BUCKET"],
-    "messagingSenderId": os.environ["FIREBASE_MESSAGING_SENDER_ID"],
-    "appId": os.environ["FIREBASE_APP_ID"],
-}
-
 #email settings
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = CONTENT_DIR / "tmp" / "emails"
