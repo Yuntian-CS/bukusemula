@@ -1,4 +1,10 @@
 # Byte-compiled / optimized / DLL files
 bukusemula/__pycache__/
+simple-django-login-and-register/
+app/
+secrets/
+bukusemula/firebase_utils.py
+content/assets/js/firebase-messaging-sw.js
+content/templates/test-firebase.html
 db.sqlite3
 *.py[codz]

@@ -1,0 +1,54 @@
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="===============5943106240931008938=="
+Subject: Profile activation
+From: test@example.com
+To: example@x.com
+Date: Sat, 14 Nov 2026 04:25:01 +0000
+Message-ID: <179463030168.8063.9124124539994372859@Lp-ub22>
+
+--===============5943106240931008938==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+
+
+To activate your profile, please follow this link:
+
+http://127.0.0.1:8000/accounts/activate/S76z7OWbhS1BMJXz1nOT/
+
+--===============5943106240931008938==
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8"/>
+    <title>Profile activation</title>
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D=
+1.0"/>
+</head>
+
+<body>
+
+<p>
+    To activate your profile, please follow this link:
+</p>
+
+<p>
+    <a href=3D"http://127.0.0.1:8000/accounts/activate/S76z7OWbhS1BMJXz1nOT/"=
+>http://127.0.0.1:8000/accounts/activate/S76z7OWbhS1BMJXz1nOT/</a>
+</p>
+
+</body>
+
+</html>
+
+--===============5943106240931008938==--
+
+-------------------------------------------------------------------------------
