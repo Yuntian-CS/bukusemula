@@ -24,12 +24,12 @@ CONTENT_DIR = BASE_DIR / "content"
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-huwoc*1_*a%tz#qlel8$ur=mv(vq=*r2!dj*e!r7725fnq11om'
+SECRET_KEY = os.environ["SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1", "www.bukusemula.shop", "localhost"]
+ALLOWED_HOSTS = ["127.0.0.1", "www.bukusemula.shop", "bukusemula.shop", "localhost"]
 
 SITE_ID = 1
 
@@ -67,7 +67,7 @@ TEMPLATES = [
         {
             'BACKEND': 'django.template.backends.django.DjangoTemplates',
             'DIRS': [
-                    CONTENT_DIR / "templates",
+                CONTENT_DIR / "templates",
                 ],
             'APP_DIRS': True,
             'OPTIONS': {
@@ -84,18 +84,26 @@ TEMPLATES = [
 WSGI_APPLICATION = 'bukusemula.wsgi.application'
 
 #email settings
-EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
-EMAIL_FILE_PATH = CONTENT_DIR / "tmp" / "emails"
-EMAIL_HOST_USER = "test@example.com"
-DEFAULT_FROM_EMAIL = "test@example.com"
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+EMAIL_HOST_USER = 'noreply.bukusemula@gmail.com'
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'bukusemula',
+            'USER': 'ought',
+            'PASSWORD': os.environ['DATABASE_PASSWORD'],
+            'HOST': 'localhost',
+            'PORT': '5432',
             }
         }
 
@@ -130,13 +138,13 @@ RESTORE_PASSWORD_VIA_EMAIL_OR_USERNAME = False
 ENABLE_ACTIVATION_AFTER_EMAIL_CHANGE = True
 
 SIGN_UP_FIELDS = [
-    "username",
-    "first_name",
-    "last_name",
-    "email",
-    "password1",
-    "password2",
-]
+        "username",
+        "first_name",
+        "last_name",
+        "email",
+        "password1",
+        "password2",
+        ]
 if DISABLE_USERNAME:
     SIGN_UP_FIELDS = ["first_name", "last_name", "email", "password1", "password2"]
 
@@ -145,10 +153,10 @@ MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
 USE_I18N = True
 LANGUAGE_CODE = "en"
 LANGUAGES = [
-    ("en", _("English")),
-    ("ms", _("Malay")),
-    ("zh-hans", _("中文"))
-]
+        ("en", _("English")),
+        ("ms", _("Malay")),
+        ("zh-hans", _("中文"))
+        ]
 
 TIME_ZONE = "Asia/Kuala_Lumpur"
 USE_TZ = True
@@ -160,8 +168,8 @@ MEDIA_ROOT = CONTENT_DIR / "media"
 MEDIA_URL = "/media/"
 
 STATICFILES_DIRS = [
-    CONTENT_DIR / "assets",
-]
+        CONTENT_DIR / "assets",
+        ]
 
 LOCALE_PATHS = [CONTENT_DIR / "locale"]
 
