@@ -8,9 +8,6 @@ from django.urls import path, include
 from django.http import HttpResponse
 from django.conf import settings
 
-def firebase_sw(request):
-    sw_path = settings.CONTENT_DIR / 'assets' / 'js' / 'firebase-messaging-sw.js'
-    return HttpResponse(sw_path.read_text(), content_type='application/javascript')
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -18,7 +15,6 @@ urlpatterns = [
     path("i18n/", include("django.conf.urls.i18n")),
     path("language/", ChangeLanguageView.as_view(), name="change_language"),
     path("accounts/", include("accounts.urls")),
-    path('firebase-messaging-sw.js', firebase_sw),
     path('accounts/', include('accounts.urls')),
 ]
 

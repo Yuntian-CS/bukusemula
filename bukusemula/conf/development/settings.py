@@ -30,7 +30,10 @@ SECRET_KEY = os.environ["SECRET_KEY"]
 DEBUG = True
 
 ALLOWED_HOSTS = ["127.0.0.1", "www.bukusemula.shop", "bukusemula.shop", "localhost"]
-
+CSRF_TRUSTED_ORIGINS = [
+        'https://bukusemula.shop',
+        'https://www.bukusemula.shop',
+        ]
 SITE_ID = 1
 
 #Application definition
