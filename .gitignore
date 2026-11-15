@@ -7,5 +7,4 @@ secrets/
 bukusemula/firebase_utils.py
 content/assets/js/firebase-messaging-sw.js
 content/templates/test-firebase.html
-db.sqlite3
 *.py[codz]
