@@ -47,10 +47,11 @@ INSTALLED_APPS = [
         'django.contrib.staticfiles',
         "django.contrib.sites",
         # Vendor apps
-        "bootstrap4",
+        "bootstrap5",
         # Application apps
         "main",
         "accounts",
+        "books"
         ]
 
 MIDDLEWARE = [

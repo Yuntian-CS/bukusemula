@@ -1,2 +1,543 @@
 /* Hi there */
+/* Navbar */
+.navbar {
+    border-bottom: 1px solid #E2E6DE;
+    justify-content: space-between;
+    background-color: #F8F9FA;
+}
+
+/* Brand */
+.navbar-brand-text {
+    color: #245C45;
+    font-size: 27px;
+    font-family: 'Lora', serif;
+    font-weight: 700;
+    overflow-wrap: break-word;
+}
+
+/* Navigation Links */
+.nav-link-custom {
+    padding: 11px 14px;
+    background: white;
+    border-radius: 8px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 6px;
+
+    color: #647168;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.nav-link-custom:hover {
+    color: #245C45;
+    background-color: #F0F5F1;
+    text-decoration: none;
+}
+
+/* Navigation Group */
+.nav-group {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+/* Message Badge */
+.message-badge {
+    width: 17px;
+    height: 17px;
+    background: #245C45;
+    border-radius: 20px;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    font-size: 10px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+}
+
+/* Profile Avatar */
+.profile-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* List a Book Button */
+.list-book-btn {
+    height: 44px;
+    padding: 0 18px;
+    background: #245C45;
+    border: none;
+    border-radius: 8px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    color: white;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.list-book-btn:hover {
+    background: #1B4634;
+    color: white;
+    text-decoration: none;
+}
+
+/* Button Icon */
+.list-book-icon {
+    width: 17px;
+    height: 17px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    line-height: 1;
+}
+
+/* Responsive */
+@media (max-width: 767.98px) {
+    .nav-group {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        padding-top: 15px;
+    }
+
+    .nav-link-custom {
+        width: 100%;
+    }
+
+    .list-book-btn {
+        width: 100%;
+    }
+}
+
+
+/* =========================
+   GENERAL
+========================= */
+
+:root {
+    --primary-green: #245C45;
+    --dark-green: #20352B;
+    --light-green: #D5E4D7;
+    --text-muted: #647168;
+    --cream: #EEE9DB;
+    --border-color: #E2E6DE;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--dark-green);
+}
+
+h1, h2 {
+    font-family: 'Lora', serif;
+}
+
+/* =========================
+   WELCOME
+========================= */
+
+.welcome-text {
+    font-size: 15px;
+    color: var(--dark-green);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero-section {
+    background: var(--primary-green);
+    color: white;
+    overflow: hidden;
+}
+
+.hero-label {
+    color: #F0D68E;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+}
+
+.hero-title {
+    font-size: clamp(30px, 4vw, 45px);
+    line-height: 1.1;
+    color: #F7F5ED;
+}
+
+.hero-description {
+    color: var(--light-green);
+    font-size: 14px;
+}
+
+.search-box {
+    background: white;
+    padding: 7px;
+    border-radius: 8px;
+}
+
+.search-box .input-group-text {
+    background: white;
+    border: none;
+    color: var(--text-muted);
+}
+
+.search-box .form-control {
+    border: none;
+    box-shadow: none;
+    font-size: 14px;
+}
+
+.btn-green {
+    background: var(--primary-green);
+    color: white;
+    border-radius: 8px !important;
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.btn-green:hover {
+    background: #1B4634;
+    color: white;
+}
+
+/* =========================
+   HERO BOOKS
+========================= */
+
+.hero-books {
+    min-height: 324px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.book-circle {
+    width: 324px;
+    height: 324px;
+    position: absolute;
+    background: #387057;
+    border-radius: 50%;
+}
+
+.book-stack {
+    position: relative;
+    width: 100%;
+    height: 270px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-book {
+    position: absolute;
+    width: 150px;
+    height: 205px;
+    overflow: hidden;
+    box-shadow: 3px 6px 9px rgba(21, 45, 39, 0.2);
+    border-radius: 4px;
+    color: white;
+}
+
+.hero-book img {
+    width: 100%;
+    height: 45%;
+    object-fit: cover;
+}
+
+.book-content {
+    padding: 12px;
+    height: 55%;
+}
+
+.book-content small {
+    font-size: 7px;
+    opacity: 0.7;
+}
+
+.book-content h5 {
+    font-family: 'Lora', serif;
+    font-size: 14px;
+    margin-top: 6px;
+}
+
+.book-content p {
+    font-size: 8px;
+    margin-bottom: 0;
+}
+
+.book-one {
+    background: #345B53;
+    transform: rotate(-12deg) translateX(-65px);
+}
+
+.book-two {
+    background: #243F59;
+    transform: rotate(5deg);
+    z-index: 2;
+}
+
+.book-three {
+    background: #7A4B38;
+    transform: rotate(16deg) translateX(65px);
+}
+
+.book-tag {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    padding: 9px 15px;
+    background: #F0D68E;
+    color: var(--primary-green);
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+/* =========================
+   SECTION TITLES
+========================= */
+
+.section-title {
+    font-size: 26px;
+    color: var(--dark-green);
+}
+
+.section-link {
+    color: var(--primary-green);
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.section-link:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+   CATEGORIES
+========================= */
+
+.category-card {
+    height: 100%;
+    padding: 17px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    color: var(--dark-green);
+    transition: 0.2s;
+}
+
+.category-card:hover {
+    border-color: var(--primary-green);
+    transform: translateY(-3px);
+}
+
+.category-icon {
+    font-size: 25px;
+    color: var(--primary-green);
+}
+
+.category-card h6 {
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.category-card small {
+    color: var(--text-muted);
+    font-size: 11px;
+}
+
+/* =========================
+   BOOK CARDS
+========================= */
+
+.book-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.2s;
+}
+
+.book-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+}
+
+.book-image {
+    height: 236px;
+    background: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 15px;
+}
+
+.book-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.book-status {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: #EAF0E8;
+    color: var(--primary-green);
+    padding: 5px 9px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.book-details {
+    padding: 18px;
+}
+
+.book-title {
+    min-height: 42px;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--dark-green);
+}
+
+.book-author {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.book-price {
+    color: var(--primary-green);
+    font-size: 21px;
+    font-weight: 600;
+}
+
+.book-quality {
+    background: #F7F5ED;
+    color: var(--text-muted);
+    padding: 5px 9px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.seller-info {
+    border-top: 1px solid var(--border-color);
+    padding-top: 11px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+/* =========================
+   CTA SECTION
+========================= */
+
+.cta-section {
+    padding: 22px 24px;
+    background: var(--cream);
+}
+
+.cta-icon {
+    font-size: 30px;
+    color: var(--primary-green);
+}
+
+.cta-section h5 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--dark-green);
+}
+
+.cta-section p {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.btn-cta {
+    background: white;
+    color: var(--primary-green);
+    border: 1px solid var(--border-color);
+    padding: 11px 18px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.btn-cta:hover {
+    background: var(--primary-green);
+    color: white;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 991px) {
+    .hero-books {
+        min-height: 300px;
+    }
+}
+
+@media (max-width: 575px) {
+    .hero-title {
+        font-size: 32px;
+    }
+
+    .hero-books {
+        min-height: 280px;
+    }
+
+    .book-tag {
+        font-size: 9px;
+    }
+
+    .search-box {
+        flex-wrap: wrap;
+    }
+
+    .search-box .form-control {
+        min-width: 0;
+    }
+
+    .search-box .btn-green {
+        width: 100%;
+    }
+
+    .cta-section {
+        padding: 18px;
+    }
+
+    .btn-cta {
+        width: 100%;
+    }
+}
 

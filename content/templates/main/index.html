@@ -1,17 +1,234 @@
 {% extends 'layouts/default/page.html' %}
 
 {% load i18n %}
+{% load static %}
 
 {% block content %}
 
-    {% if request.user.is_authenticated %}
+<div class="container-fluid px-4 px-lg-5 py-4">
 
-        {% translate 'Your username is' %} <b>{{ request.user.username }}</b>.
+	<!-- Welcome Section -->
+	<div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+		<p class="welcome-text mb-0">{% if request.user.is_authenticated %}
+
+        {% translate 'Welcome, ' %}{{ request.user.username }}.
 
     {% else %}
 
-        {% translate 'You are a guest.' %}
+        {% translate 'You are a guest, please login or signup.' %}
 
-    {% endif %}
+    {% endif %}</p>
+
+		<small class="text-muted">
+			<i class="bi bi-mortarboard me-1"></i>
+			UKM Bangi · Semester 1, 2026/27
+		</small>
+	</div>
+
+	<!-- Hero Section -->
+	<section class="hero-section rounded-4 mb-5">
+		<div class="row align-items-center g-0">
+
+			<!-- Hero Content -->
+			<div class="col-lg-7 p-4 p-lg-5">
+				<p class="hero-label mb-3">
+				LESS SPENDING. MORE LEARNING.
+				</p>
+
+				<h1 class="hero-title mb-3">
+					Your next chapter, for a little less.
+				</h1>
+
+				<p class="hero-description mb-4">
+				Pre-loved textbooks. Student-friendly prices.
+				Right here at UKM.
+				</p>
+
+				<!-- Search Form -->
+				<form action="#" method="GET">
+					<div class="input-group search-box">
+						<span class="input-group-text">
+							<i class="bi bi-search"></i>
+						</span>
+
+						<input
+								type="search"
+								name="q"
+								class="form-control"
+								placeholder="Search by title, author or course..."
+								>
+
+								<button class="btn btn-green" type="submit">
+									Search books
+								</button>
+					</div>
+				</form>
+			</div>
+
+			<!-- Hero Book Illustration -->
+			<div class="col-lg-5 hero-books">
+				<div class="book-circle"></div>
+
+				<div class="book-stack">
+					<div class="hero-book book-one">
+						<div class="book-content">
+							<small>12TH EDITION</small>
+							<h5>Campbell Biology</h5>
+							<p>Lisa A. Urry et al.</p>
+						</div>
+						<img src="https://placehold.co/170x120" alt="Biology book">
+					</div>
+
+					<div class="hero-book book-two">
+						<div class="book-content">
+							<small>8TH EDITION</small>
+							<h5>Calculus: Early Transcendentals</h5>
+							<p>James Stewart</p>
+						</div>
+						<img src="https://placehold.co/170x120" alt="Calculus book">
+					</div>
+
+					<div class="hero-book book-three">
+						<div class="book-content">
+							<small>9TH EDITION</small>
+							<h5>Principles of Economics</h5>
+							<p>N. Gregory Mankiw</p>
+						</div>
+						<img src="https://placehold.co/170x120" alt="Economics book">
+					</div>
+				</div>
+
+				<div class="book-tag">
+					<i class="bi bi-recycle"></i>
+					Good books deserve a second life.
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- Categories -->
+	<section class="mb-5">
+
+		<div class="d-flex justify-content-between align-items-center mb-3">
+			<h2 class="section-title mb-0">Find your field</h2>
+			<a href="#" class="section-link">Browse all categories →</a>
+		</div>
+
+		<div class="row row-cols-2 row-cols-md-3 row-cols-xl-6 g-3">
+
+			{% for category, count, icon in categories %}
+			<div class="col">
+				<a href="#" class="category-card text-decoration-none">
+					<i class="bi {{ icon }} category-icon"></i>
+
+					<div>
+						<h6>{{ category }}</h6>
+						<small>{{ count }} books</small>
+					</div>
+				</a>
+			</div>
+			{% endfor %}
+
+		</div>
+	</section>
+
+	<!-- Fresh Books -->
+	<section class="mb-5">
+
+		<div class="d-flex justify-content-between align-items-center mb-4">
+			<div>
+				<h2 class="section-title mb-1">Fresh on the shelf</h2>
+				<p class="text-muted mb-0">
+				Recently listed by students around campus.
+				</p>
+			</div>
+
+			<a href="#" class="section-link">View all books →</a>
+		</div>
+
+		<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+
+			{% for book in books %}
+			<div class="col">
+				<div class="book-card h-100">
+
+					<!-- Book Image -->
+					<div class="book-image">
+						<img
+								src="{{ book.image_url|default:'https://placehold.co/300x300' }}"
+								alt="{{ book.title }}"
+								>
+
+								<span class="book-status">For sale</span>
+					</div>
+
+					<!-- Book Details -->
+					<div class="book-details">
+
+						<h6 class="book-title">
+							{{ book.title }}
+						</h6>
+
+						<p class="book-author">
+						{{ book.author }}
+						</p>
+
+						<div class="d-flex justify-content-between align-items-center mb-3">
+							<span class="book-price">
+								RM {{ book.price }}
+							</span>
+
+							<span class="book-quality">
+								{{ book.quality }}
+							</span>
+						</div>
+
+						<div class="seller-info">
+							<i class="bi bi-person-circle"></i>
+
+							<span>
+								{{ book.seller.nickname }}
+							</span>
+
+							<i class="bi bi-geo-alt ms-auto"></i>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			{% empty %}
+			<div class="col-12">
+				<p class="text-muted">No books available at the moment.</p>
+			</div>
+			{% endfor %}
+
+		</div>
+	</section>
+
+	<!-- Call to Action -->
+	<section class="cta-section rounded-3">
+		<div class="d-flex align-items-center gap-3 flex-wrap">
+
+			<i class="bi bi-book-half cta-icon"></i>
+
+			<div class="flex-grow-1">
+				<h5>Finished a semester? Pass a book forward.</h5>
+
+				<p class="mb-0">
+				Sell, trade or rent your textbooks to another UKM student.
+				You arrange the exchange directly.
+				</p>
+			</div>
+
+			<a href="#" class="btn btn-cta">
+				<i class="bi bi-plus-circle me-2"></i>
+				Create a listing
+			</a>
+
+		</div>
+	</section>
+
+</div>
 
 {% endblock content %}
